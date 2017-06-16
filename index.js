@@ -31,14 +31,8 @@ bot.dialog('/', function (session) {
 
 function action() {
     connector.getData({ userId: 1, persistUserData: true, address: { channelId: 'slack'} },  function(err, resp, body){               
-        console.log(resp.userData);        
+        console.log(resp);        
     });
 }
 
 setInterval(function() { action(); }, 1000);
-/*
-
-url = this.settings.endpoint.stateEndpoint + '/v3/botstate/' + encodeURIComponent(address.channelId);
-ChatConnector.prototype.authenticatedRequest = function (options, callback, refresh)
-{"method":"POST","url":"http://127.0.0.1:50373/v3/botstate/emulator/users/1","body":{"eTag":"*","data":{"test":true}},"json":true}
-*/
