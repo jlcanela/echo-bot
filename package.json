@@ -14,5 +14,9 @@
     "commander": "^2.9.0",
     "es6-promisify": "^5.0.0",
     "winston": "^2.3.1"
+  },
+  "dependencies": {
+    "botbuilder": "^3.8.4",
+    "restify": "^4.3.0"
   }
 }
