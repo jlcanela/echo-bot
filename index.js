@@ -1,6 +1,7 @@
 
 var restify = require('restify');
 var builder = require('botbuilder');
+var logging = require('./logging');
 
 //=========================================================
 // Bot Setup
@@ -22,6 +23,22 @@ server.post('/api/messages', connector.listen());
 
 // Add help dialog
 bot.dialog('/', function (session) {
-    session.send("I'm a simple echo bot.");
+    console.log(session.message.address);
+    session.connector.getData({ userId: 1, persistUserData: true, address: session.message.address}, function(err, resp, body){        
+        console.log(resp.userData);        
+    });
 });
 
+function action() {
+    connector.getData({ userId: 1, persistUserData: true, address: { channelId: 'slack'} },  function(err, resp, body){               
+        console.log(resp.userData);        
+    });
+}
+
+setInterval(function() { action(); }, 1000);
+/*
+
+url = this.settings.endpoint.stateEndpoint + '/v3/botstate/' + encodeURIComponent(address.channelId);
+ChatConnector.prototype.authenticatedRequest = function (options, callback, refresh)
+{"method":"POST","url":"http://127.0.0.1:50373/v3/botstate/emulator/users/1","body":{"eTag":"*","data":{"test":true}},"json":true}
+*/
