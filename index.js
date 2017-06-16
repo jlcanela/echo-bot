@@ -1,7 +1,7 @@
 
 var restify = require('restify');
 var builder = require('botbuilder');
-var logging = require('./logging');
+var logging = require('./lib/logging');
 
 //=========================================================
 // Bot Setup

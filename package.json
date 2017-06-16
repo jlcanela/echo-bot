@@ -12,11 +12,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
     "commander": "^2.9.0",
     "es6-promisify": "^5.0.0",
     "winston": "^2.3.1"
   },
   "dependencies": {
+    "appdynamics": "^4.3.1",
     "botbuilder": "^3.8.4",
     "global-request-logger": "^0.1.1",
     "restify": "^4.3.0",
